@@ -7,7 +7,7 @@ Environment=statedir=/
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=alexdns
-ExecStart=/usr/bin/python /home/alex/Dropbox/dns_server/dns_server/__main__.py
+ExecStart=/usr/bin/python /path/to/dns_server/__main__.py
 
 [Install]
 WantedBy=multi-user.target
