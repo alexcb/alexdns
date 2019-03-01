@@ -1,0 +1,13 @@
+[Unit]
+Description=Job that runs the alexdns daemon
+
+[Service]
+Type=simple
+Environment=statedir=/
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=alexdns
+ExecStart=/usr/bin/python /home/alex/Dropbox/dns_server/dns_server/__main__.py
+
+[Install]
+WantedBy=multi-user.target
