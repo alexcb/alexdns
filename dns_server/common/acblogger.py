@@ -15,7 +15,7 @@ handler.setFormatter(formatter)
 log.addHandler(handler)
 
 _allowed_types = [
-    basestring,
+    str,
     int,
     float,
     bool,
@@ -27,7 +27,7 @@ def convert_val(x):
     return str(x)
 
 def format_msg(msg, level, **kwargs):
-    x = {k:convert_val(v) for k, v in kwargs.iteritems()}
+    x = {k:convert_val(v) for k, v in kwargs.items()}
     x['msg'] = msg
     x['level'] = level
     return json.dumps(x)

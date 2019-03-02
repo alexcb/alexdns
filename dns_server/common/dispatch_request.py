@@ -6,6 +6,8 @@ import handlers.proxy
 import handlers.docker
 import time
 
+import common.acblogger as log
+
 thehandlers = [
     handlers.block_daisy.block_daisy,
     handlers.fake_a.fake_a,
@@ -19,6 +21,7 @@ cache = {}
 def dispatch_request(request):
     assert QR[request.header.qr] == "QUERY"
     key = (str(request.q.qname), str(request.q.qtype))
+    log.info("searching", key=key, request_query=request.q)
     if key in cache:
         age = time.time() - cache[key]['t']
         if age < max_cache_time:

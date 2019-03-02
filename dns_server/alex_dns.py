@@ -5,7 +5,7 @@
 #
 
 import syslog
-import SocketServer
+import socketserver
 import socket
 import sys
 import struct
@@ -20,7 +20,7 @@ import common.acblogger as log
 
 # DNSHandler Mixin. The class contains generic functions to parse DNS requests and
 # calculate an appropriate response based on user parameters.
-class DNSHandler(SocketServer.BaseRequestHandler):
+class DNSHandler(socketserver.BaseRequestHandler):
     def handle_data(self, data):
         response = ""
 
@@ -28,10 +28,13 @@ class DNSHandler(SocketServer.BaseRequestHandler):
             # Parse data as DNS
             d = DNSRecord.parse(data)
 
-        except Exception, e:
+        except Exception as e:
             log.error("invalid dns request", e=str(e))
         else:
             response = common.dispatch_request.dispatch_request(d)
+            if response is None:
+                log.warn("failed to lookup request", d=str(d))
+
 
         return response
 
@@ -61,10 +64,10 @@ class TCPHandler(DNSHandler):
             length = struct.pack(">H", len(response))
             self.request.sendall(length+response)
 
-class ThreadedUDPServer(SocketServer.ThreadingMixIn, SocketServer.UDPServer):
+class ThreadedUDPServer(socketserver.ThreadingMixIn, socketserver.UDPServer):
     pass
 
-class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
+class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     allow_reuse_address = True
 
 # Initialize and start the DNS Server

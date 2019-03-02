@@ -14,12 +14,15 @@ assert(all(x.endswith('.') for x in overrides))
 
 def fake_a(d):
     qtype = QTYPE[d.q.qtype]
+    log.info("got qtype", host=qtype)
     if qtype != 'A':
         return False, d
 
     qname = str(d.q.qname)
+    log.info("got qname", host=qname)
 
     if qname not in overrides:
+        log.info("not overridding dns", host=qname)
         return False, d
 
     fake_record = overrides[qname]
