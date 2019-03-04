@@ -11,6 +11,9 @@ setup(name='alexdns',
       'alexdns',
       'alexdns.common',
       ],
+  scripts=[
+      'bin/alexdns',
+      ],
   install_requires=[
     'dnslib',
     'dnspython',
