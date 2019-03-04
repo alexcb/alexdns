@@ -1,7 +1,7 @@
 from dnslib import * #TODO
 
-from common.chomp_dot import chomp_dot
-import common.acblogger as log
+from alexdns.common.chomp_dot import chomp_dot
+import alexdns.common.acblogger as log
 
 # Obtain a response from a real DNS server.
 def proxyrequest(request, host, port="53", protocol="udp"):

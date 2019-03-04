@@ -1,5 +1,5 @@
-from common.chomp_dot import chomp_dot #TODO i dont like this import
-import common.acblogger as log
+from alexdns.common.chomp_dot import chomp_dot #TODO i dont like this import
+import alexdns.common.acblogger as log
 
 blacklist = [
     'daisy.ubuntu.com',

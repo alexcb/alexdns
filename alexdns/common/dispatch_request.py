@@ -1,18 +1,19 @@
-from dnslib import QR
-
-import handlers.block_daisy
-import handlers.fake_a
-import handlers.proxy
-import handlers.docker
 import time
 
-import common.acblogger as log
+from dnslib import QR
+
+import alexdns.handlers.block_daisy
+import alexdns.handlers.fake_a
+import alexdns.handlers.proxy
+import alexdns.handlers.docker
+
+import alexdns.common.acblogger as log
 
 thehandlers = [
-    handlers.block_daisy.block_daisy,
-    handlers.fake_a.fake_a,
-    handlers.docker.docker,
-    handlers.proxy.proxy,
+    alexdns.handlers.block_daisy.block_daisy,
+    alexdns.handlers.fake_a.fake_a,
+    alexdns.handlers.docker.docker,
+    alexdns.handlers.proxy.proxy,
     ]
 
 max_cache_time = 60

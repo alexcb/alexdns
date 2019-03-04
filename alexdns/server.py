@@ -13,9 +13,8 @@ import time
 
 from dnslib import *
 
-import common.dispatch_request
-
-import common.acblogger as log
+from .common import dispatch_request
+from .common import acblogger as log
 
 
 # DNSHandler Mixin. The class contains generic functions to parse DNS requests and
@@ -31,7 +30,7 @@ class DNSHandler(socketserver.BaseRequestHandler):
         except Exception as e:
             log.error("invalid dns request", e=str(e))
         else:
-            response = common.dispatch_request.dispatch_request(d)
+            response = dispatch_request.dispatch_request(d)
             if response is None:
                 log.warn("failed to lookup request", d=str(d))
 

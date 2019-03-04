@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
 import argparse
-from alex_dns import run_server
+
+from alexdns.server import run_server
 
 
 def get_parser():

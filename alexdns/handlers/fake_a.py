@@ -1,8 +1,8 @@
 from dnslib import * #TODO
-from common.chomp_dot import chomp_dot #TODO i dont like this import
-from common.is_ip import is_ipv4 #TODO i dont like this import
-from common.resolver import query_A
-import common.acblogger as log
+from alexdns.common.chomp_dot import chomp_dot #TODO i dont like this import
+from alexdns.common.is_ip import is_ipv4 #TODO i dont like this import
+from alexdns.common.resolver import query_A
+import alexdns.common.acblogger as log
 
 overrides = {
     'music.': '192.168.0.10',

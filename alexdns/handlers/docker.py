@@ -3,8 +3,8 @@ import json
 
 from dnslib import * #TODO
 
-import common.acblogger as log
-from common.chomp_dot import chomp_dot #TODO i dont like this import
+import alexdns.common.acblogger as log
+from alexdns.common.chomp_dot import chomp_dot #TODO i dont like this import
 
 def get_docker_ip(container_name):
     s = subprocess.check_output(['/usr/bin/docker', 'inspect', container_name])
