@@ -9,10 +9,8 @@ setup(name='alexdns',
   url='https://github.com/alexcb/alexdns',
   packages=[
       'alexdns',
-      'alexdns.common',
-      ],
-  scripts=[
-      'bin/alexdns',
+      'alexdns/common',
+      'alexdns/handlers',
       ],
   install_requires=[
     'dnslib',

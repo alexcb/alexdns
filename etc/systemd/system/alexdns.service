@@ -7,7 +7,7 @@ Environment=statedir=/
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=alexdns
-ExecStart=/usr/bin/python3 /usr/local/lib/python3.6/dist-packages/alexdns/__main__.py
+ExecStart=/usr/local/bin/alexdns
 
 [Install]
 WantedBy=multi-user.target
