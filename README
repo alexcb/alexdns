@@ -17,6 +17,7 @@ sudo cp bin/alexdns /usr/local/bin/.
 
 sudo systemctl daemon-reload
 sudo service alexdns restart
+sudo systemctl enable alexdns
 
 
 # disabling systemd-resolve
