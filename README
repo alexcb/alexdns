@@ -15,12 +15,13 @@ sudo sh -c "HOME=/ ./setup.py install"
 sudo cp etc/systemd/system/alexdns.service /etc/systemd/system/alexdns.service
 sudo cp bin/alexdns /usr/local/bin/.
 
+sudo systemctl daemon-reload
+sudo service alexdns restart
+
+
 # disabling systemd-resolve
 sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
 
 sudo systemctl enable alexdns
 echo 'nameserver 127.0.0.1' | sudo tee /etc/resolv.conf
-
-# wtf python
-
