@@ -10,6 +10,7 @@ find . -name *.pyc | xargs -r sudo rm
 find . -name __pycache__ | xargs -r sudo rm -rf
 sudo pip3 uninstall -y alexdns
 sudo rm -rf /usr/local/lib/python3.6/dist-packages/alexdns/
+sudo pip3 install .
 
 sudo sh -c "HOME=/ ./setup.py install"
 sudo cp etc/systemd/system/alexdns.service /etc/systemd/system/alexdns.service
